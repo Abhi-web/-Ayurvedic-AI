@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ayurvedic AI Health Assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#f3f9f4,#e6f4ea);
+color:#2f3e2e;
+}
+
+/* Navbar */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-weight:700;
+font-size:20px;
+color:#1b5e20;
+}
+
+/* Hero */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px;
+}
+
+.hero-text{
+max-width:50%;
+}
+
+.hero-text h1{
+font-size:42px;
+margin-bottom:20px;
+color:#1b5e20;
+}
+
+.hero-text p{
+font-size:17px;
+color:#4e6b4f;
+line-height:1.6;
+}
+
+.hero img{
+width:380px;
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+/* Chat */
+
+.chat-section{
+display:flex;
+justify-content:center;
+margin-top:-60px;
+padding-bottom:80px;
+}
+
+.chat-container{
+width:650px;
+padding:35px;
+border-radius:20px;
+background:white;
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+.chat-container h2{
+text-align:center;
+margin-bottom:25px;
+color:#1b5e20;
+}
+
+form{
+display:flex;
+gap:10px;
+}
+
+input{
+flex:1;
+padding:14px;
+border-radius:12px;
+border:1px solid #c8e6c9;
+font-size:14px;
+}
+
+button{
+padding:14px 22px;
+border:none;
+border-radius:12px;
+background:linear-gradient(to right,#2e7d32,#43a047);
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+/* Voice button */
+
+.voice{
+background:#ff5252;
+}
+
+/* Response */
+
+.response-box{
+margin-top:20px;
+padding:20px;
+background:#f1f8f4;
+border-left:4px solid #2e7d32;
+border-radius:12px;
+line-height:1.7;
+}
+
+/* Voice status */
+
+.voice-status{
+text-align:center;
+margin-top:10px;
+font-size:13px;
+color:#666;
+}
+
+/* Footer */
+
+.footer{
+text-align:center;
+padding:25px;
+background:#1b5e20;
+color:white;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="logo">🌿 Ayurvedic AI</div>
+</div>
+
+<section class="hero">
+
+<div class="hero-text">
+<h1>Balance Your Health Naturally</h1>
+<p>
+AI-powered Ayurvedic guidance based on traditional healing principles.
+Describe your symptoms and receive natural wellness suggestions instantly.
+</p>
+</div>
+
+<img src="https://i.pinimg.com/736x/e8/e0/63/e8e0634257829d47cbe67e85a8198515.jpg">
+
+</section>
+
+
+<section class="chat-section">
+
+<div class="chat-container">
+
+<h2>Describe Your Symptoms</h2>
+
+<form method="POST">
+
+<input id="user_input" type="text" name="user_input"
+placeholder="e.g. headache, acidity, stress..." required>
+
+<button type="submit">Ask AI</button>
+
+<button type="button" class="voice" onclick="startVoice()">🎤</button>
+
+</form>
+
+<div id="voiceStatus" class="voice-status"></div>
+
+{% if response %}
+
+<div class="response-box" id="aiResponse">
+
+{{ response }}
+
+</div>
+
+{% endif %}
+
+<p style="margin-top:10px;font-size:12px;color:#666;text-align:center;">
+⚠ This AI provides general wellness guidance only.
+Consult a certified doctor for medical advice.
+</p>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+© 2026 Ayurvedic AI Assistant | Developed by Abhishek
+</div>
+
+
+<script>
+
+/* Voice Recognition */
+
+function startVoice(){
+
+const status=document.getElementById("voiceStatus")
+
+const recognition=new webkitSpeechRecognition()
+
+recognition.lang="en-US"
+
+recognition.start()
+
+status.innerText="🎤 Listening..."
+
+recognition.onresult=function(event){
+
+let text=event.results[0][0].transcript
+
+document.getElementById("user_input").value=text
+
+status.innerText="You said: "+text
+
+document.querySelector("form").submit()
+
+}
+
+recognition.onerror=function(){
+
+status.innerText="Voice recognition error."
+
+}
+
+}
+
+
+/* Speak AI response */
+
+window.onload=function(){
+
+let response=document.getElementById("aiResponse")
+
+if(response){
+
+let speech=new SpeechSynthesisUtterance(response.innerText)
+
+speech.rate=1
+speech.pitch=1
+
+speechSynthesis.speak(speech)
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
