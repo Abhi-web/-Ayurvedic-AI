@@ -46,17 +46,19 @@ This project combines **Flask (Python backend)** with **Google Gemini AI** to ge
 📂 Project Structure
 
 ```
-Ayurvedic-AI-Assistant/
-│
-├── app.py
-├── .env
-├── requirements.txt
+AYURVEDIC-AI-HEALTH-ASSISTANT/
 │
 ├── templates/
 │   └── index.html
 │
-└── static/
-    └── (css / js if used)
+├── venv/
+│
+├── .env
+├── ai_health_bot.py
+├── app.py
+├── health_bot.py
+├── README.md
+└── requirements.txt
 ```
 
 ---
