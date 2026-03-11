@@ -1,83 +1,154 @@
-🌿 Ayurvedic AI Health Assistant
+ 🌿 Ayurvedic AI Health Assistant
 
-An AI-powered health assistant that provides natural Ayurvedic guidance based on user symptoms.
-This project uses Python, Flask, and Google Gemini AI to generate safe wellness suggestions using traditional Ayurvedic principles.
+An AI-powered web application that provides **Ayurvedic health guidance** based on user symptoms.
+The assistant suggests **natural herbs, home remedies, diet tips, and lifestyle recommendations** using AI.
 
-The assistant can also support voice interaction, allowing users to speak their symptoms and receive AI responses.
+This project combines **Flask (Python backend)** with **Google Gemini AI** to generate intelligent health responses.
+
+---
 
 🚀 Features
 
-🤖 AI-powered health guidance
+* 🌿 **AI Ayurvedic Guidance** – Suggests natural herbs and remedies
+* 🧠 **AI-Powered Responses** – Uses Google Gemini AI model
+* 🎤 **Voice Assistant Support** – Speak symptoms using microphone
+* 💬 **Interactive Chat Interface** – Simple and clean user interface
+* ⚡ **Instant AI Responses** – Real-time symptom analysis
+* 📱 **Responsive Design** – Works on desktop and mobile
+* 🧘 **Holistic Health Suggestions** – Diet and lifestyle recommendations
 
-🌿 Suggests Ayurvedic herbs and natural remedies
+---
+🛠️ Tech Stack
 
-🧘 Provides diet and lifestyle tips
+**Frontend**
 
-🎤 Voice assistant support (speech recognition)
+* HTML
+* CSS
+* JavaScript
 
-🗣 AI voice response (text-to-speech)
+**Backend**
 
-💻 Modern responsive UI
+* Python
+* Flask
 
-⚡ Fast responses using Gemini AI
+**AI Model**
 
-🛠 Technologies Used
+* Google Gemini API
 
-Python
+**Other Tools**
 
-Flask
+* Python Dotenv
+* Speech Recognition API
+* Web Speech API
 
-HTML
-
-CSS
-
-JavaScript
-
-Google Gemini API
-
-Speech Recognition API
-
-Speech Synthesis API
+---
 
 📂 Project Structure
-Ayurvedic-AI-Assistant
+
+```
+Ayurvedic-AI-Assistant/
 │
 ├── app.py
 ├── .env
+├── requirements.txt
 │
-├── templates
+├── templates/
 │   └── index.html
 │
-└── README.md
-⚙ Installation
+└── static/
+    └── (css / js if used)
+```
 
-Clone the repository
+---
 
+⚙️ Installation
+
+1️⃣ Clone the repository
+
+```
 git clone https://github.com/yourusername/ayurvedic-ai-assistant.git
-
-Go to the project folder
-
 cd ayurvedic-ai-assistant
+```
 
-Create virtual environment
+---
+2️⃣ Create virtual environment
 
+```
 python -m venv venv
+```
 
-Activate environment
+Activate it:
 
+**Windows**
+
+```
 venv\Scripts\activate
+```
+Mac / Linux
 
-Install dependencies
+```
+source venv/bin/activate
+```
 
+---
+3️⃣ Install dependencies
+
+```
 pip install flask google-genai python-dotenv
-🔑 Setup API Key
+```
 
-Create a .env file and add your Gemini API key
+---
+4️⃣ Add API key
 
-GOOGLE_API_KEY=your_api_key_here
-▶ Run the Project
+Create a `.env` file in the project root:
+
+```
+GOOGLE_API_KEY=your_gemini_api_key_here
+```
+
+---
+5️⃣ Run the application
+
+```
 python app.py
+```
 
-Open in browser
+Open in browser:
 
+```
 http://127.0.0.1:5000
+```
+🎤 Voice Assistant
+
+Users can interact with the AI using voice:
+
+1. Click the **microphone button**
+2. Speak your symptoms
+3. AI converts speech to text
+4. Response is generated and spoken back
+
+---
+
+⚠️ Disclaimer
+
+This AI assistant provides **general wellness guidance based on Ayurvedic principles**.
+It is **not a substitute for professional medical advice**.
+Always consult a qualified healthcare professional for serious health conditions.
+
+---
+⭐ Support
+
+If you like this project:
+
+* Star the repository ⭐
+* Share feedback
+* Contribute improvements
+
+---
+📌 Future Improvements
+
+* AI chat memory
+* Ayurvedic dosha analysis (Vata / Pitta / Kapha)
+* Advanced voice conversation
+* Health report generation
+* Deployment on cloud
