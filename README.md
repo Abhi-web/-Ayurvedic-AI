@@ -1,6 +1,6 @@
  🌿 Ayurvedic AI Health Assistant
 
- ![image alt] (https://github.com/Abhi-web/-Ayurvedic-AI/blob/main/Screenshot%202026-02-27%20201004.png?raw=true)
+ ![image alt] (https://github.com/Abhi-web/-Ayurvedic-AI/blob/a95b3ba4a3165862ca98d55f10a725de0acb502e/Screenshot%202026-02-27%20201004.png)
 
 An AI-powered web application that provides **Ayurvedic health guidance** based on user symptoms.
 The assistant suggests **natural herbs, home remedies, diet tips, and lifestyle recommendations** using AI.
